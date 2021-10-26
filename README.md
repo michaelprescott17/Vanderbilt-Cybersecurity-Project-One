@@ -19,7 +19,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
   - [metricbeat-playbook.yml](Ansible/metricbeat-playbook.yml)
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -41,7 +41,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 - Metricbeat helps you monitor your servers by collecting metrics from the system and services running on the server.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+
 
 |   Name   | Function       | IP Address        | Operating System   |
 |----------|----------------|-------------------|--------------------|
@@ -88,7 +88,6 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ![~/Vanderbilt-Cybersecurity-Project-One/Images/ELK!.png](Images/ELK!.png)
 
-_[TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)_
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -101,7 +100,7 @@ We have installed the following Beats on these machines:
 
 These Beats allow us to collect the following information from each machine:
 - Filebeat collects system log data from the web servers. Geo location, ssh logins, and time stamps are all collected and presented. There are many types of information that can be collected in addition to these.
--Metricbeats collects information from the system and services running on the server. Network traffic and CPU usage are monitored. Apache, MySQL, and Nginx can all be monitored using metricbeats. There are many types of information that can be gathered using metricbeats in addition to the above. 
+- Metricbeats collects information from the system and services running on the server. Network traffic and CPU usage are monitored. Apache, MySQL, and Nginx can all be monitored using metricbeats. There are many types of information that can be gathered using metricbeats in addition to the above. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -113,30 +112,29 @@ SSH into the control node and follow the steps below:
 # This site should load
 ![~/Vanderbilt-Cybersecurity-Project-One/Images/Kibana.png](Images/Kibana.png)
 
-_TODO: Answer the following questions to fill in the blanks:_
+
 - **install-elk.yml** is the playbook used to install the ELK server. It is in **/etc/ansible/roles**
 - You must update the hosts file in /etc/ansible. The IP addresses of your webservers must be updated. an ELK group must also be added with its IP address. **cd /etc/ansible**, then **nano hosts**
 
-- 
 - To check to see if your server is running and gathering information: **http://(local-IP)(ELK):5601/app/kibana**
-- These are only two of the logs generated
+- This is where you check that the system logs are being generated for filebeat.
 ![Vanderbilt-Cybersecurity-Project-One/Images/Kibana2.png](Images/Kibana2.png)
+- This is where you check to make sure your metricbeats logs are being generated.
 ![Vanderbilt-Cybersecurity-Project-One/Images/Kibana3.png](Images/Kibana3.png)
 
-# Basic Commands needed#
-- ssh -i ~/.ssh/id_rsa <username>@IP
-- **sudo docker container list -a** will list your Docker container
-- **sudo docker start silly_name** to start the container
-- **sudo docker attach silly_name** to connect you as the root of the container
-- **cd /etc/ansible** holds the directory of ansible
-- **http://(Web-Server-IP)/setup.php** will take you to the DVWA site
+# Basic Commands needed
+- ssh -i ~/.ssh/id_rsa username@IP
+- ***sudo docker container list -a*** will list your Docker container
+- ***sudo docker start silly_name*** to start the container
+- ***sudo docker attach silly_name*** to connect you as the root of the container
+- ***cd /etc/ansible*** holds the directory of ansible
+- ***http://(Web-Server-IP)/setup.php*** will take you to the DVWA site
 ![Vanderbilt-Cybersecurity-Project-One/Images/DVWA.png](Images/DVWA.png)
 
-# Playbooks are always run with the command **ansible-playbook** <filename>.yml
+# Playbooks are always run with the command **ansible-playbook** filename.yml
   - **ansible-playbook install-elk.yml**
   - **ansible-playbook filebeat-playbook.yml**
   - **ansible-playbook metricbeat-playbook.yml**
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 References: https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-overview.html, https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html, https://lumecloud.com/what-does-a-load-balancer-do/
