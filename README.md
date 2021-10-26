@@ -59,7 +59,7 @@ Only the Jump-Box Provisioner machine can accept connections from the Internet. 
 - 13.83.12.127
 
 Machines within the network can only be accessed by an Ansible Docker Container.
-- The ELK VM is only made accesible through the Jump-Box Provisioner using SSH. It is accessed at the 10.1.0.4 address.
+- The ELK VM is only made accessible through the Jump-Box Provisioner using SSH. It is accessed at the 10.1.0.4 address.
 
 A summary of the access policies in place can be found in the table below.
 
@@ -114,7 +114,7 @@ SSH into the control node and follow the steps below:
 
 
 - **install-elk.yml** is the playbook used to install the ELK server. It is in **/etc/ansible/roles**
-- You must update the hosts file in /etc/ansible. The IP addresses of your webservers must be updated. an ELK group must also be added with its IP address. **cd /etc/ansible**, then **nano hosts**
+- You must update the hosts file in /etc/ansible. The IP addresses of your webservers must be updated. An ELK group must also be added with its IP address. **cd /etc/ansible**, then **nano hosts**
 
 - To check to see if your server is running and gathering information: **http://(local-IP)(ELK):5601/app/kibana**
 - This is where you check that the system logs are being generated for filebeat.
